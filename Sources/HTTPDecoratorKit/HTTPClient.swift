@@ -34,3 +34,15 @@ public struct HTTPResponse {
         self.statusCode = statusCode
     }
 }
+
+struct HTTPRequest: LocalizedDescriptionConvertible {
+    let endpoint: String
+    let method: HTTPMethod
+    let headers: [String: String]?
+    let body: Data?
+
+    var localizedDescription: String {
+        "\(method.rawValue) \(endpoint)"
+    }
+}
+
